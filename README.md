@@ -29,7 +29,7 @@ This is the **frontend** of the Task Tracker App, built with:
 ### 🔹 Prerequisites
 
 - Node.js & npm
-- Backend API running (see backend repo)
+- Backend API running (https://github.com/nishu65/task-tracker-backend)
 ***************************************************************************************************************
 ### 🔹 Install and Run
 
