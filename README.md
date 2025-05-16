@@ -1,12 +1,60 @@
-# React + Vite
+# ⚛️ Task Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LINK TO WEBSITE-https://task-tracker-frontend-chi.vercel.app/
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+This is the **frontend** of the Task Tracker App, built with:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Vite](https://vitejs.dev/) (super-fast React tooling)
+- [React](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/) for state management
+- [React Router](https://reactrouter.com/) for routing
+- [Axios](https://axios-http.com/) for API requests
+
+-----------------------------------------------------------------------------------------------------
+
+## 📸 Features
+
+
+- 🔐 **JWT Authentication** (signup, login, logout)
+- 🧠 Auth state managed globally with Redux Toolkit
+- 🛡️ Protected routes (accessible only if logged in)
+- 📁 Create and manage multiple projects
+- ✅ Add, update, delete, and complete tasks per project
+- ♻️ Auto-refresh projects and tasks via backend API
+- 🌐 Works with a Node.js + MongoDB backend
+
+
+-----------------------------------------------------------------------------------------------------------
+
+## 🛠️ Setup Instructions
+
+### 🔹 Prerequisites
+
+- Node.js & npm
+- Backend API running (https://github.com/nishu65/task-tracker-backend)
+***************************************************************************************************************
+### 🔹 Install and Run
+
+```bash
+# Navigate to frontend folder
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+```
+
+🔐 Environment Variables
+
+Create a .env file in the frontend/ directory:
+
+
+env
+
+
+VITE_API_URL= "your backend url" e.g(http://localhost:5000/api)
