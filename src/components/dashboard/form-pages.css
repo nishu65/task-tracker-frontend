@@ -27,7 +27,16 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
 }
+.task-form-textarea {
+  width: 90%;
+  height: 100px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
 
+}
 .task-form input {
   width: 90%;
   padding: 10px 12px;
@@ -100,7 +109,10 @@
   margin: 4px 0;
   font-size: 14px;
   color: #374151;
+  white-space: pre-wrap; /* 🔑 Preserve newlines and wrap long text */
+  word-break: break-word; /* 🔑 Break long words */
 }
+
 
 .task-item button {
   margin-top: 10px;

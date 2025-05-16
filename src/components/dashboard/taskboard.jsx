@@ -75,11 +75,13 @@ const TaskBoard = ({ project }) => {
               onChange={handleChange}
               required
             />
-            <input
+            <textarea className="task-form-textarea"
               name="description"
               placeholder="Description"
               value={form.description}
               onChange={handleChange}
+              rows="3"
+             
             />
             <button type="submit">Add Task</button>
           </form>
@@ -91,9 +93,8 @@ const TaskBoard = ({ project }) => {
               {tasks.map((task) => (
                 <li
                   key={task._id}
-                  className={`task-item ${
-                    task.status === "Completed" ? "completed" : ""
-                  }`}
+                  className={`task-item ${task.status === "Completed" ? "completed" : ""
+                    }`}
                 >
                   <h4>{task.title}</h4>
                   <p>{task.description}</p>
