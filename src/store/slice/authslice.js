@@ -43,6 +43,7 @@ const authSlice = createSlice({
     builder
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
+        alert("Login in progress...");
 
         state.error = null;
       })
