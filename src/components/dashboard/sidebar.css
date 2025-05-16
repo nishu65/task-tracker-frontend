@@ -1,0 +1,114 @@
+.taskboard-sidebar {
+  width: 280px;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.taskboard-sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.taskboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.project-item:hover {
+  background-color: #6186ce;
+}
+
+.project-item.selected {
+  background-color: #0c3ed3;
+}
+
+.project-item span {
+  flex-grow: 1;
+  color: #000000;
+  font-weight: 500;
+}
+
+.delete-project-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding-left: 8px;
+  transition: color 0.2s ease;
+}
+
+.delete-project-btn:hover {
+  color: #b91c1c;
+}
+
+.taskboard-sidebar input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.add-project-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.add-project-btn:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.add-project-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  background-color: #ef4444;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+}
