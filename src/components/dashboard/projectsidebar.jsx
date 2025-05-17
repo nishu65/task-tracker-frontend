@@ -28,6 +28,7 @@ const Sidebar = ({ onSelectProject, selectedProject }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    toast.success("Logged out successfully!");
     window.location.href = "/";
   };
 
