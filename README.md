@@ -11,6 +11,7 @@ This is the **frontend** of the Task Tracker App, built with:
 - [Redux Toolkit](https://redux-toolkit.js.org/) for state management
 - [React Router](https://reactrouter.com/) for routing
 - [Axios](https://axios-http.com/) for API requests
+- [Toast](https://www.npmjs.com/package/react-toastify?activeTab=readme) for Notifications
 
 -----------------------------------------------------------------------------------------------------
 
@@ -24,7 +25,8 @@ This is the **frontend** of the Task Tracker App, built with:
 - ✅ Add, update, delete, and complete tasks per project
 - ♻️ Auto-refresh projects and tasks via backend API
 - 🌐 Works with a Node.js + MongoDB backend
-
+- ♻️ Live task updates per project
+- 🛎️ Toast notifications for success/error feedback
 
 -----------------------------------------------------------------------------------------------------------
 
