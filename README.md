@@ -1,6 +1,6 @@
 # ⚛️ Task Tracker Frontend
 
-LINK TO WEBSITE-https://task-tracker-frontend-chi.vercel.app/
+LINK TO TASKTRACKER APP-https://task-tracker-frontend-chi.vercel.app/
 
 
 
