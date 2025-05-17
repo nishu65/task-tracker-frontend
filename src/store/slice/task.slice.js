@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createtask, gettask, deletetask, updatetask } from "../thunk/taskthunk";
+import { createtask, gettask, deletetask, statustask, updatetask } from "../thunk/taskthunk";
 
 const initialState = {
     tasks: [],
@@ -68,13 +68,13 @@ const taskSlice = createSlice({
                 state.error = action.payload?.error || "Delete task failed";
             });
 
-        // Update Task
+        // status Task
         builder
-            .addCase(updatetask.pending, (state) => {
+            .addCase(statustask.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(updatetask.fulfilled, (state, action) => {
+            .addCase(statustask.fulfilled, (state, action) => {
                 const updatedTaskIndex = state.tasks.findIndex(
                     (task) => task._id === action.payload._id
                 );
@@ -87,10 +87,31 @@ const taskSlice = createSlice({
                 state.success = true;
             }
             )
+            .addCase(statustask.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload?.error || "Update task failed";
+            });
+        // Update Task
+        builder
+            .addCase(updatetask.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(updatetask.fulfilled, (state, action) => {
+                const updatedTaskIndex = state.tasks.findIndex(
+                    (task) => task._id === action.payload._id
+                );
+                if (updatedTaskIndex !== -1) {
+                    state.tasks[updatedTaskIndex] = action.payload;
+                }
+                state.loading = false;
+                state.success = true;
+            })
             .addCase(updatetask.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload?.error || "Update task failed";
             });
+
     }
 });
 export const { clearTaskState } = taskSlice.actions;

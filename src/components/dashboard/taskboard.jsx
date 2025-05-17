@@ -4,6 +4,7 @@ import {
   createtask,
   gettask,
   deletetask,
+  statustask,
   updatetask,
 } from "../../store/thunk/taskthunk";
 import "./form-pages.css";
@@ -40,7 +41,7 @@ const TaskBoard = ({ project }) => {
     const updatedStatus =
       task.status === "Pending" ? "Completed" : "Pending";
     dispatch(
-      updatetask({
+      statustask({
         taskId: task._id,
         updatedData: {
           status: updatedStatus,
@@ -53,6 +54,29 @@ const TaskBoard = ({ project }) => {
   const handleDeleteTask = (id) => {
     dispatch(deletetask(id));
   };
+  const handleupdatetask = (task) => {
+  const newTitle = prompt("Update task title", task.title);
+  if (newTitle === null || newTitle.trim() === "") return;
+
+  const newDescription = prompt("Update description", task.description);
+  if (newDescription === null) return;
+
+  const updatedStatus = task.status;
+  const updatedCompletedAt = updatedStatus === "Completed" ? new Date() : null;
+
+  dispatch(
+    updatetask({
+      taskId: task._id,
+      updatedData: {
+        title: newTitle,
+        description: newDescription,
+        status: updatedStatus,
+        completedAt: updatedCompletedAt,
+      },
+    })
+  );
+};
+
 
   if (!project) {
     return (
@@ -118,10 +142,11 @@ const TaskBoard = ({ project }) => {
                   </button>
                   <button
                     onClick={() => handleDeleteTask(task._id)}
-                    style={{ marginLeft: 8 }}
+                   
                   >
                     Delete
                   </button>
+                  <button onClick={()=>handleupdatetask(task)}>Update</button>
                 </li>
               ))}
             </ul>

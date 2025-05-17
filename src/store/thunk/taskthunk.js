@@ -40,6 +40,18 @@ export const deletetask = createAsyncThunk(
   }
 );
 
+// status Task
+export const statustask = createAsyncThunk(
+  "task/statustask",
+  async ({ taskId, updatedData }, thunkAPI) => {
+    try {
+      const response = await API.put(`/task/${taskId}`, updatedData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 // Update Task
 export const updatetask = createAsyncThunk(
   "task/updatetask",
