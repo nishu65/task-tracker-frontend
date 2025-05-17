@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signupUser, loginUser } from '../thunk/auththunk';
 
+
 const initialState = {
   token: localStorage.getItem('token') || null,
   loading: false,
@@ -33,6 +34,7 @@ const authSlice = createSlice({
       .addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
+       
       })
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false;
@@ -43,8 +45,7 @@ const authSlice = createSlice({
     builder
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
-        alert("Login in progress...");
-
+       
         state.error = null;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
@@ -52,6 +53,7 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         localStorage.setItem('token', action.payload.token);
         state.success = true;
+        
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

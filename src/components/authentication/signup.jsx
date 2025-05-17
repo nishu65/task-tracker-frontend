@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { signupUser } from "../../store/thunk/auththunk"; // adjust path if needed
 import countries from "./country.json";
 import "./signup.css";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "", confirmPassword: "", country: "" });
@@ -16,6 +17,7 @@ const Signup = () => {
     e.preventDefault();
     if (form.password !== form.confirmPassword) return alert("Passwords do not match");
     dispatch(signupUser(form)).then((res) => {
+        toast.info("Sign up successfully...");
       if (!res.error) navigate("/"); // go to login on success
     });
   };

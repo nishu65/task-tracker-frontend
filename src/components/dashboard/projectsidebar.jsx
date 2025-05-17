@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProjects, createProject, deleteProject } from "../../store/thunk/projectthunk";
 import "./sidebar.css";
+import { toast } from "react-toastify";
 
 const Sidebar = ({ onSelectProject, selectedProject }) => {
   const dispatch = useDispatch();
@@ -15,12 +16,14 @@ const Sidebar = ({ onSelectProject, selectedProject }) => {
   const handleAddProject = () => {
     if (newProject.trim() && projects.length < 4) {
       dispatch(createProject({ title: newProject.trim() }));
+      toast.success("Project created successfully!");
       setNewProject("");
     }
   };
 
   const handleDelete = (id) => {
     dispatch(deleteProject(id));
+    toast.success("Project deleted successfully!");
   };
 
   const handleLogout = () => {

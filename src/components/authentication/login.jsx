@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/thunk/auththunk"; // adjust path if needed
 import "./login.css";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,6 +21,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast.info("Logging in...");
     dispatch(loginUser({ email, password })).then((res) => {
       if (!res.error) navigate("/menu"); // show projects/tasks
     });
